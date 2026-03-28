@@ -7,6 +7,7 @@ import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { SlidersHorizontal, X, ChevronDown, Search, LayoutGrid, List } from 'lucide-react';
 import ProductCard from './ProductCard';
 import type { Category, Product, ProductFilters, SortOption } from '@/types';
+import Link from 'next/link';
 import { getProducts } from '@/lib/api';
 
 // ─── Styled Components ───────────────────────────────────────────────────────
@@ -489,7 +490,7 @@ export default function ProductsPageClient({ categories }: Props) {
     <PageWrap>
       <PageHeader>
         <Breadcrumb>
-          <a href="/">Accueil</a>
+          <Link href="/">Accueil</Link>
           <span>/</span>
           Tous les produits
         </Breadcrumb>
