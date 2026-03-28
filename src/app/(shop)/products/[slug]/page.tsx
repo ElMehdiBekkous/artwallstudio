@@ -1,4 +1,4 @@
-import { getProductBySlug, getRelatedProducts } from '@/lib/api';
+import { getProductBySlug, getRelatedProducts } from '@/lib/api-server';
 import ProductDetailClient from '@/components/product/ProductDetailClient';
 import { notFound } from 'next/navigation';
 import Footer from '@/components/layout/Footer';

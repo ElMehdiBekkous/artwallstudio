@@ -1,8 +1,8 @@
-import { getSupabaseBrowserClient } from './supabase';
+import { createSupabaseServerClient } from './supabase-server';
 import type { Product, ProductFilters } from '@/types';
 
 export async function getProducts(filters: ProductFilters = {}): Promise<Product[]> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   let query = supabase
     .from('products')
     .select(`
@@ -55,7 +55,7 @@ export async function getProducts(filters: ProductFilters = {}): Promise<Product
 }
 
 export async function getFeaturedProducts(): Promise<Product[]> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
     .from('products')
     .select(`*, images:product_images(*), category:categories(*)`)
@@ -69,7 +69,7 @@ export async function getFeaturedProducts(): Promise<Product[]> {
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
     .from('products')
     .select(`
@@ -92,7 +92,7 @@ export async function getRelatedProducts(
   categoryId: string,
   limit = 4
 ): Promise<Product[]> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
     .from('products')
     .select(`*, images:product_images(*), category:categories(*)`)
@@ -106,7 +106,7 @@ export async function getRelatedProducts(
 }
 
 export async function getCategories() {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
     .from('categories')
     .select('*')
@@ -117,7 +117,7 @@ export async function getCategories() {
 }
 
 export async function searchProducts(query: string): Promise<Product[]> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
     .from('products')
     .select(`*, images:product_images(*), category:categories(*)`)
@@ -130,7 +130,7 @@ export async function searchProducts(query: string): Promise<Product[]> {
 }
 
 export async function toggleWishlist(userId: string, productId: string) {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const { data: existing } = await supabase
     .from('wishlists')
     .select('id')
@@ -148,7 +148,7 @@ export async function toggleWishlist(userId: string, productId: string) {
 }
 
 export async function getWishlist(userId: string): Promise<Product[]> {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase
     .from('wishlists')
     .select(`product:products(*, images:product_images(*))`)
@@ -166,7 +166,7 @@ export async function createOrder(orderData: {
   taxAmount: number;
   shippingAddress: object;
 }) {
-  const supabase = getSupabaseBrowserClient();
+  const supabase = await createSupabaseServerClient();
   const total = orderData.subtotal + orderData.shippingAmount + orderData.taxAmount;
 
   const { data: order, error: orderError } = await supabase

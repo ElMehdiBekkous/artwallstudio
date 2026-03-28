@@ -1,5 +1,5 @@
 import ProductsPageClient from '@/components/product/ProductsPageClient';
-import { getCategories } from '@/lib/api';
+import { getCategories } from '@/lib/api-server';
 import Footer from '@/components/layout/Footer';
 import { Suspense } from 'react';
 
