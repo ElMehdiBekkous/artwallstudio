@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { User, ShoppingBag, Heart, Settings, LogOut, ChevronRight, Package } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseBrowserClient } from '@/lib/supabase';
 import type { Order } from '@/types';
 import toast from 'react-hot-toast';
 

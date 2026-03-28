@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseBrowserClient } from '@/lib/supabase';
 import type { Product } from '@/types';
 
 interface BrowseEvent {
@@ -66,9 +66,9 @@ export function useRecommendations(currentProductId?: string, limit = 6) {
 
   useEffect(() => {
     const fetchRecommendations = async () => {
+      const supabase = getSupabaseBrowserClient();
       setLoading(true);
       const history = getBrowseHistory();
-
       try {
         // Get candidate products
         const { data: products } = await supabase
@@ -110,11 +110,13 @@ export function useRecentlyViewed(limit = 4) {
 
     if (ids.length === 0) return;
 
+    const supabase = getSupabaseBrowserClient();
+
     supabase
       .from('products')
       .select(`*, images:product_images(*), category:categories(*)`)
       .in('id', ids)
-      .then(({ data }) => {
+      .then(({ data }: { data: any }) => {
         if (data) {
           // Preserve history order
           const ordered = ids
