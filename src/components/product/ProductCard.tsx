@@ -131,7 +131,7 @@ export default function ProductCard({ product, dark }: ProductCardProps) {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <ImageWrapper>
-        <Link href={`/products/${product.slug}`} tabIndex={-1}>
+        <Link href={`/products/${product.slug}`} tabIndex={-1} style={{ position: 'absolute', inset: 0 }}>
           <Image src={primaryImage} alt={product.name} fill style={{ objectFit: 'cover' }}
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw" />
         </Link>

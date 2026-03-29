@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from 'lucide-react';
 import toast from 'react-hot-toast';
-import Footer from '@/components/layout/Footer';
 
 const Page = styled.div`
   padding-top: var(--nav-height);
@@ -350,7 +349,7 @@ export default function ContactPage() {
           )}
         </FormCard>
       </Container>
-      <Footer />
+
     </Page>
   );
 }

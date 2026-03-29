@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { ShoppingBag, X, ArrowLeft, Heart } from 'lucide-react';
 import { useWishlistStore, useCartStore } from '@/lib/store';
 import toast from 'react-hot-toast';
-import Footer from '@/components/layout/Footer';
 
 const Page = styled.div`
   padding-top: var(--nav-height);
@@ -195,7 +194,7 @@ export default function WishlistPage() {
           </Grid>
         )}
       </Container>
-      <Footer />
+
     </Page>
   );
 }

@@ -1,26 +1,30 @@
 import { Suspense } from 'react';
 export const dynamic = 'force-dynamic';
 
-import HeroSection from '@/components/layout/HeroSection';
-import FeaturedProducts from '@/components/product/FeaturedProducts';
-import CategoryGrid from '@/components/layout/CategoryGrid';
+import SmoothScroll from '@/components/home/SmoothScroll';
+import Hero from '@/components/home/Hero';
 import BrandStrip from '@/components/layout/BrandStrip';
+import Categories from '@/components/home/Categories';
+import FeaturedProducts from '@/components/product/FeaturedProducts';
+import Visualizer from '@/components/home/Visualizer';
+import Testimonials from '@/components/home/Testimonials';
 import WhyUs from '@/components/layout/WhyUs';
 import Newsletter from '@/components/layout/Newsletter';
-import Footer from '@/components/layout/Footer';
 
 export default function HomePage() {
   return (
-    <>
-      <HeroSection />
+    <SmoothScroll>
+      <Hero />
       <BrandStrip />
-      <CategoryGrid />
+      <Categories />
       <Suspense fallback={null}>
         <FeaturedProducts />
       </Suspense>
+      <Visualizer />
+      <Testimonials />
       <WhyUs />
       <Newsletter />
-      <Footer />
-    </>
+
+    </SmoothScroll>
   );
 }

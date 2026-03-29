@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Search, Package, Truck, CheckCircle, Clock, MapPin } from 'lucide-react';
 import Link from 'next/link';
-import Footer from '@/components/layout/Footer';
 
 const Page = styled.div`
   padding-top: var(--nav-height);
@@ -425,7 +424,7 @@ export default function TrackPage() {
           </motion.div>
         )}
       </Container>
-      <Footer />
+
     </Page>
   );
 }

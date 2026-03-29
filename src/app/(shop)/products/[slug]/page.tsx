@@ -1,7 +1,7 @@
 import { getProductBySlug, getRelatedProducts } from '@/lib/api-server';
 import ProductDetailClient from '@/components/product/ProductDetailClient';
 import { notFound } from 'next/navigation';
-import Footer from '@/components/layout/Footer';
+
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -29,7 +29,7 @@ export default async function ProductPage({ params }: Props) {
   return (
     <>
       <ProductDetailClient product={product} related={related} />
-      <Footer />
+
     </>
   );
 }

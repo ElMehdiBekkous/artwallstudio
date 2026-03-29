@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import Footer from '@/components/layout/Footer';
 
 const Page = styled.div`
   padding-top: var(--nav-height);
@@ -499,7 +498,7 @@ export default function AboutPage() {
         </CTABtns>
       </CTASection>
 
-      <Footer />
+
     </Page>
   );
 }

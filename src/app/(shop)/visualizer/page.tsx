@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Upload, Wand2, RotateCcw, Download, ZoomIn, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import toast from 'react-hot-toast';
-import Footer from '@/components/layout/Footer';
 
 const Page = styled.div`
   padding-top: var(--nav-height);
